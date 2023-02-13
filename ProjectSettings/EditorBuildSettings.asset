@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 9d01346b17a83854e94ebc3b28261424
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 3d63c768030721742a8f784e13761975
+  - enabled: 1
+    path: Assets/Scenes/KeyDoorSystem_Demo.unity
+    guid: 24b064e9c97e407458519d71cea5038b
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 218ddd74b4854c74d86ca0137519f2aa
   m_configObjects: {}

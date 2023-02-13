@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class PlayAudioOnLocation : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public Transform targetLocation;
-    public float distanceThreshold = 1.0f;
+    public AudioClip clip;
+    public float volume = 1.0f;
+    private AudioSource audioSource;
 
-    private void Update()
+    private void Start()
     {
-        float distance = Vector3.Distance(transform.position, targetLocation.position);
-
-        if (distance <= distanceThreshold)
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
         {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        audioSource.PlayOneShot(clip, volume);
     }
 }
