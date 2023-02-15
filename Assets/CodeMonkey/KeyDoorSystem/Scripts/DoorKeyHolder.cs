@@ -24,6 +24,7 @@ namespace CodeMonkey.KeyDoorSystemCM {
 
         public event EventHandler OnDoorKeyAdded;
         public event EventHandler OnDoorKeyUsed;
+        public AudioClip pickupSound;
 
         [Header("Key Holder")]
         [Tooltip("List of Keys currently being held")]
@@ -33,6 +34,7 @@ namespace CodeMonkey.KeyDoorSystemCM {
             DoorKey doorKey = collider.GetComponent<DoorKey>();
             if (doorKey != null) {
                 doorKeyHoldingList.Add(doorKey.key);
+                AudioSource.PlayClipAtPoint(pickupSound, transform.position, 1);
                 doorKey.DestroySelf();
                 OnDoorKeyAdded?.Invoke(this, EventArgs.Empty);
             }

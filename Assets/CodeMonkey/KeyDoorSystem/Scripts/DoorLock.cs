@@ -30,6 +30,8 @@ namespace CodeMonkey.KeyDoorSystemCM {
 
         Animator m_Animator;
 
+        public AudioClip openSound;
+
         void Awake() {
             // Cache Animator Component
             m_Animator = GetComponent<Animator>();
@@ -38,6 +40,8 @@ namespace CodeMonkey.KeyDoorSystemCM {
         public void OpenDoor() {
             // Play Open Door Animation
             m_Animator.SetTrigger("Open");
+            AudioSource.PlayClipAtPoint(openSound, transform.position, 1);
+
         }
 
         public void CloseDoor() {
